@@ -1,0 +1,81 @@
+label{
+   color: red;
+   margin-left: 8px;
+   margin-bottom: 10px;
+}
+button{
+    color: white !important;
+}
+li,textarea{
+    color: white !important;
+    margin-left: 10px;
+   /* #555 */
+    
+}
+.img-onda{
+    text-align: center;
+    width: 400px;
+    height: 100px;
+}
+.btn-capa{
+    width: 180px;
+    height: 40px;  
+}
+.btn-right{
+    margin-left: 270px;
+
+}
+.transparente{
+    border: 1px;
+    border-color: transparent !important;
+    resize: none;  
+    background: transparent !important; 
+}
+/* .fondo{
+    background-image: url('/chat.gif');
+    object-fit: cover;
+} */
+.animachat{
+    background-image: url('/conect.gif');
+    height: 155px;
+    width: 100%;
+    object-fit: contain;
+    
+
+}
+.mensaje{
+    list-style: none; 
+    padding: 5px;   
+    color: black; 
+} 
+.border-top{
+    border-top: 200px !important;
+}
+
+#contenido1 {
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+#contenido2 {
+    margin-top: 140px;
+
+
+}
+.borrar-tweet,
+.borrar-tweet:hover {
+    float: right;
+    cursor: pointer;
+    color: red;
+    font-weight: bold;
+}
+
+.error {
+    background-color: red;
+    text-align: center;
+    padding: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    max-width: 400px;
+    margin: 0 auto;
+    color: white;
+}
