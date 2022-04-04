@@ -1,78 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>How To Sell Drugs</title>
-    
-    <link rel="shortcut icon" href="carga.jpg">
+    <title>Proyecto de Tesis</title>
+
+    <link rel="shortcut icon" href="logo.png">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/skeleton.css">
     <link rel="stylesheet" href="css/custom.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=BIZ+UDMincho&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/fcb1842485.js" crossorigin="anonymous"></script>
 </head>
-<body class="fondo" >
 
-    <div id="contenido1" >
+<body>
+    <div id="contenido1">
         <div class="container">
             <div class="row">
-                <div class="six columns border-botton" >
-                    <label for="tweet">
-                        anonymous~</label>
-                    <form  id="formulario">
-                            <label for="tweet"></label>
-                            <textarea id="tweet" class="u-full-width transparente"></textarea>
-                            <input type="submit" class="button btn-right"value="Enviar">
-                    </form>
+                <!-- chat01 -->
+                <div class="six columns border-botton">
+                    <div class="chat-container">
+                        <div class="chat">
+
+                            <!-- header -->
+                            <div class="chat-header">
+                                <div class="profile">
+                                    <div class="left">
+                                        <img src="arrow.png" class="arrow">
+                                        <img src="perfil.png" class="pp">
+                                        <h2>Priscila</h2>
+                                        <span>online</span>
+                                    </div>
+                                    <div class="right">
+                                        <img src="more.png" class="icon">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- termina header -->
+                            <!-- mensajes -->
+                            <div class="chat-box">
+                                <div class="chat-r">
+                                    <div class="sp"></div>
+                                    <div class="mess mess-r" id="emisor">
+                                        <!-- mensaje emisor -->
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- termina mensajes -->
+                            <div class="chat-footer">
+                                <form id="formulario">
+                                    <img src="emo.png" class="emo">
+                                    <textarea id="tweet" placeholder="escribir..."></textarea>
+                                    <div class="icons">
+                                        <img src="attach file.png">
+                                        <img src="camera.png">
+                                        <button type="submit" class="aee"><img src="enviar.png" class="mic"></button>
+                                    </div>
+                                    
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-                <div class="six columns animachat" >
-                    <label>msj~ My Drugs</label>
-                    <div id="lista-tweets"></div>
+                <!-- termina chat 01 -->
+
+
+
+                <!-- chat01 -->
+                <div class="six columns border-botton">
+                    <div class="chat-container">
+                        <div class="chat">
+
+                            <!-- header -->
+                            <div class="chat-header">
+                                <div class="profile">
+                                    <div class="left">
+                                        <img src="arrow.png" class="arrow">
+                                        <img src="perfil.png" class="pp">
+                                        <h2>Marimar</h2>
+                                        <span>online</span>
+                                    </div>
+                                    <div class="right">
+                                        <img src="more.png" class="icon">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- termina header -->
+                            <!-- mensajes -->
+                            <div class="chat-box">
+                                <div class="chat-l">
+                                    <div class="mess-1" id="receptor">
+                                        <!-- mensjae receptor --></div>
+                                    <!-- <div class="sp"></div> -->
+                                </div>
+                            </div>
+                            <!-- termina mensajes -->
+                            <div class="chat-footer">
+                                <form id="formulario">
+                                    <img src="emo.png" class="emo">
+                                    <textarea id="tweet" placeholder="escribir..."></textarea>
+                                    <div class="icons">
+                                        <img src="attach file.png">
+                                        <img src="camera.png">
+                                        <button disabled class="aee"><img src="enviar.png" class="mic"></button>
+                                    </div>
+                                    
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
+                <!-- termina chat 01 -->
             </div>
 
         </div>
-    </div> <!--#contenido-->
+    </div>
+    <!--#contenido-->
 
 
 
     <div id="contenido2">
 
         <div class="container ">
-               
-                <div class="row ">
 
-                    <div class="six columns ">
-                        <label>Procesos</label>
-                        <button id="btnAplicacion" class="btn-capa">Aplicacion</button>
-                        <button id="btnAplicacion2" class="btn-capa">Aplicacion</button><br>
-                        <button id="btnPresentacion" class="btn-capa">Presentacion</button>
-                        <button id="btnPresentacion2" class="btn-capa">Presentacion</button><br>
-                        <button id="btnSesion" class="btn-capa">Sesion</button>
-                        <button id="btnSesion2" class="btn-capa">Sesion</button><br>
-                        <button id="btnTransporte" class="btn-capa">Transporte</button>
-                        <button id="btnTransporte2" class="btn-capa">Transporte</button><br>
-                        <button id="btnRed" class="btn-capa">Red</button>
-                        <button id="btnRed2" class="btn-capa">Red</button><br>
-                        <button id="btnEnlace" class="btn-capa">Enlace</button>
-                        <button id="btnEnlace2" class="btn-capa">Enlace</button><br>
-                        <button id="btnFisico" class="btn-capa">Fisico</button>
-                        <button id="btnFisico2" class="btn-capa">Fisico</button><br> 
-                    </div>
+            <div class="row ">
 
-                    <div class="six columns">
-                        <label>Trafico de datos</label>
-                            <div id="onda">
-                            </div>
-                        <div id="capas">
-                            
-                        </div>
-                    </div>  
-
+                <div class="six columns ">
+                    <label>Modelo Osi</label>
+                    <button id="btnAplicacion" class="btn-capa">Aplicacion</button>
+                    <button id="btnAplicacion2" class="btn-capa">Aplicacion</button><br>
+                    <button id="btnPresentacion" class="btn-capa">Presentacion</button>
+                    <button id="btnPresentacion2" class="btn-capa">Presentacion</button><br>
+                    <button id="btnSesion" class="btn-capa">Sesion</button>
+                    <button id="btnSesion2" class="btn-capa">Sesion</button><br>
+                    <button id="btnTransporte" class="btn-capa">Transporte</button>
+                    <button id="btnTransporte2" class="btn-capa">Transporte</button><br>
+                    <button id="btnRed" class="btn-capa">Red</button>
+                    <button id="btnRed2" class="btn-capa">Red</button><br>
+                    <button id="btnEnlace" class="btn-capa">Enlace</button>
+                    <button id="btnEnlace2" class="btn-capa">Enlace</button><br>
+                    <button id="btnFisico" class="btn-capa">Fisico</button>
+                    <button id="btnFisico2" class="btn-capa">Fisico</button><br>
                 </div>
+
+                <div class="six columns">
+                    <label>Dato</label>
+                    <div id="onda">
+                    </div>
+                    <div id="capas">
+
+                    </div>
+                </div>
+
+            </div>
         </div>
 
     </div>
@@ -82,4 +170,5 @@
     <script src="js/app.js"></script>
     <script src="js/tramaInicio.js"></script>
 </body>
+
 </html>

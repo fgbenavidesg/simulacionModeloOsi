@@ -1,6 +1,7 @@
 //variables
 const formulario = document.querySelector('#formulario');
-const listaTweets = document.querySelector('#lista-tweets');
+const emisor = document.querySelector('#emisor');
+const receptor = document.querySelector('#receptor');
 const capas = document.querySelector('#capas');
 
 
@@ -11,17 +12,12 @@ const btnTransporte = document.querySelector('#btnTransporte');
 const btnRed = document.querySelector('#btnRed');
 const btnEnlace = document.querySelector('#btnEnlace');
 const btnFisico = document.querySelector('#btnFisico');
-let tweets = [];
-//evemnt listeners
+let mensaje='';
 
 //variables externas
 let ascii;
 let objSesion;
-const ip_origen = '190.234.174.231';
-const ip_destino = '192.168.1.135';
 
-const mac_origen = '60:30:8C:F8:KE:13';
-const mac_destino = '30:1C:16:3A:50:E7';
 
 const EventListeners = () => {
     //cuando el usuario agrega un nuevo tweet
@@ -33,7 +29,7 @@ const EventListeners = () => {
     btnAplicacion.addEventListener('click', () => {
         const text = document.createElement('textarea');
         text.classList.add('transparente');
-        text.innerHTML = `${tweets[0].tweet}`;
+        text.innerHTML = `${mensaje}`;
         capas.appendChild(text);
     });
 
@@ -41,7 +37,7 @@ const EventListeners = () => {
         limpiarProceso();
         const text = document.createElement('textarea');
         text.classList.add('transparente');
-        text.innerHTML = toAscii(tweets[0].tweet);
+        text.innerHTML = toAscii(mensaje);
         capas.appendChild(text);
         ascii = text.value;
     });
@@ -50,14 +46,14 @@ const EventListeners = () => {
         const text = document.createElement('textarea');
         text.classList.add('transparente');
         objSesion = crearSesion(ascii);
-        text.innerHTML = getSesion(objSesion);
+        text.innerHTML = Sesion(objSesion);
         capas.appendChild(text);
     });
     btnTransporte.addEventListener('click', () => {
         limpiarProceso();
         const text = document.createElement('textarea');
         text.classList.add('transparente');
-        text.innerHTML = getTransporte(objSesion);
+        text.innerHTML = Transporte(objSesion);
         capas.appendChild(text);
 
     });
@@ -65,7 +61,7 @@ const EventListeners = () => {
         limpiarProceso();
         const text = document.createElement('textarea');
         text.classList.add('transparente');
-        text.innerHTML = getRed(objSesion);
+        text.innerHTML = Red(objSesion);
         capas.appendChild(text);
     });
 
@@ -73,14 +69,14 @@ const EventListeners = () => {
         limpiarProceso();
         const text = document.createElement('textarea');
         text.classList.add('transparente');
-        text.innerHTML = getEnlace(objSesion);
+        text.innerHTML = Enlace(objSesion);
         capas.appendChild(text);
     });
     btnFisico.addEventListener('click', () => {
         limpiarProceso();
         const text = document.createElement('textarea');
         text.classList.add('transparente');
-        text.innerHTML = getFisica(objSesion);
+        text.innerHTML = Fisica(mensaje);
         capas.appendChild(text);
     });
     //-------------------------------------------------------inicio de trama 2
@@ -89,7 +85,7 @@ const EventListeners = () => {
         limpiarProceso();
         const text = document.createElement('textarea');
         text.classList.add('transparente');
-        text.innerHTML = `${tweets[0].tweet}`;
+        text.innerHTML = `${mensaje}`;
         capas.appendChild(text);
     });
 
@@ -97,7 +93,7 @@ const EventListeners = () => {
         limpiarProceso();
         const text = document.createElement('textarea');
         text.classList.add('transparente');
-        text.innerHTML = toAscii(tweets[0].tweet);
+        text.innerHTML = toAscii(mensaje);
         capas.appendChild(text);
         ascii = text.value;
     });
@@ -106,14 +102,14 @@ const EventListeners = () => {
         const text = document.createElement('textarea');
         text.classList.add('transparente');
         objSesion = crearSesion(ascii);
-        text.innerHTML = getSesion(objSesion);
+        text.innerHTML = Sesion(objSesion);
         capas.appendChild(text);
     });
     btnTransporte2.addEventListener('click', () => {
         limpiarProceso();
         const text = document.createElement('textarea');
         text.classList.add('transparente');
-        text.innerHTML = getTransporte(objSesion);
+        text.innerHTML = Transporte(objSesion);
         capas.appendChild(text);
 
     });
@@ -121,7 +117,7 @@ const EventListeners = () => {
         limpiarProceso();
         const text = document.createElement('textarea');
         text.classList.add('transparente');
-        text.innerHTML = getRed(objSesion);
+        text.innerHTML = Red(objSesion);
         capas.appendChild(text);
     });
 
@@ -129,19 +125,16 @@ const EventListeners = () => {
         limpiarProceso();
         const text = document.createElement('textarea');
         text.classList.add('transparente');
-        text.innerHTML = getEnlace(objSesion);
+        text.innerHTML = Enlace(objSesion);
         capas.appendChild(text);
     });
     btnFisico2.addEventListener('click', () => {
         limpiarProceso();
         const text = document.createElement('textarea');
         text.classList.add('transparente');
-        text.innerHTML = getFisica(objSesion);
+        text.innerHTML = Fisica(mensaje);
         capas.appendChild(text);
     });
-
-
-
 
 }
 
@@ -159,18 +152,11 @@ const agregarTweets = (e) => {
         mostrarError('no puede ir vacio');
         return; //evita que se ejecute mas lineas de codigo
     }
-    //añadir al arreglo de tweet
 
-    tweetObj = {
-        id: Date.now(),
-        //tweet: tweet se coloca uno solo cuando tienen l mismo nombre
-        tweet
+    mensaje = tweet;
 
-    }
-
-    tweets = [...tweets, tweetObj];
-
-    crearHtml();
+    crearHtmlEmisor();
+    crearHtmlReceptor();
     formulario.reset();
     mostrarOnda();
 
@@ -191,7 +177,7 @@ const mostrarError = (msj) => {
     msjError.textContent = msj;
     msjError.classList.add('error');
     //insertarlo en el contenido
-    const contenido = document.querySelector('#contenido');
+    const contenido = document.querySelector('#contenido1');
     contenido.appendChild(msjError);
     //elimina la funcion
     setTimeout(() => {
@@ -201,39 +187,20 @@ const mostrarError = (msj) => {
 }
 //muestra un listado de los twees
 
-const crearHtml = () => {
+const crearHtmlEmisor = () => {
+        //crear html
+        const p = document.createElement('p');
+        //añadir el texto
+        p.textContent = `${mensaje}`;
+        emisor.appendChild(p);
 
-    limpiarHtml();
-    if (tweets.length > 0) {
-        tweets.forEach(tweet => {
-
-            //agrega un boton de eliminar
-
-            const btnEliminar = document.createElement('a')
-            btnEliminar.classList.add('borrar-tweet');
-            btnEliminar.innerHTML = `<img src='/eliminar.ico'>`;
-            //añadir la funcion eliminar
-            btnEliminar.onclick = () => {
-                borrarTweet(tweet.id);
-                eliminarOnda();
-                limpiarProceso();
-                crearHtml();
-            }
-
-            //crear html
-            const li = document.createElement('li');
-            li.classList.add('mensaje');
-            //añadir el texto
-            li.textContent = `
-            anonymous ~ ${tweet.tweet}           
-            `;
-            //añadirle el boton
-            li.appendChild(btnEliminar);
-
-            listaTweets.appendChild(li);
-        });
-    }
-
+}
+const crearHtmlReceptor = () => {
+    //crear html
+    const p = document.createElement('p');
+    //añadir el texto
+    p.textContent = `${mensaje}`;
+    receptor.appendChild(p);
 }
 
 //limpiar proceso
@@ -242,21 +209,6 @@ const limpiarProceso = () => {
         capas.removeChild(capas.firstChild);
     }
 }
-//limpiar html
-const limpiarHtml = () => {
-
-    while (listaTweets.firstChild) {
-        listaTweets.removeChild(listaTweets.firstChild);
-    }
-
-}
-
-//elimina un tweet
-const borrarTweet = (id) => {
-
-    tweets = tweets.filter(tweet => tweet.id !== id);
-}
-
 
 EventListeners();
 
